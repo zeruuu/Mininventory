@@ -27,9 +27,7 @@ public class InventoryManager extends JFrame {
         listModel = new DefaultListModel<>();
         itemList = new JList<>(listModel);
         ImageIcon icon = new ImageIcon("src/mininventoryico.png");
-        ImageIcon dicon = new ImageIcon("src/imagedefault.png"); // Not implemented yet, supposedly for items with no images
         Image miniIcon = icon.getImage();
-        Image defaultIcon = dicon.getImage(); // Not implemented yet, supposedly for items with no images
 
         // Main
         setTitle("Mininventory");
@@ -90,7 +88,8 @@ public class InventoryManager extends JFrame {
                         listModel.setElementAt(selectedItem.getName(), selectedIndex);
                         updateDisplay(selectedItem); // Update display after edit
                     } else {
-                        JOptionPane.showMessageDialog(InventoryManager.this, "Please select an item to edit.", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(InventoryManager.this,
+                                "Please select an item to edit.", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 }
             });
@@ -216,7 +215,8 @@ public class InventoryManager extends JFrame {
                 listModel.setElementAt(selectedItem.getName(), selectedIndex);
                 updateDisplay(selectedItem); // Optionally update display
             } else {
-                JOptionPane.showMessageDialog(InventoryManager.this, "Please select an item to edit.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(InventoryManager.this,
+                        "Please select an item to edit.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -237,7 +237,8 @@ public class InventoryManager extends JFrame {
                 updateDisplay(selectedItem);
             }
             } else {
-                JOptionPane.showMessageDialog(InventoryManager.this, "There is no item to delete.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(InventoryManager.this,
+                        "There is no item to delete.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }

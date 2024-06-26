@@ -223,7 +223,8 @@ public class AddItemDialog extends JDialog {
             try {
                 amount = Integer.parseInt(amountField.getText().trim());
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(AddItemDialog.this, "Amount must be a valid integer.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(AddItemDialog.this,
+                        "Amount must be a valid integer.", "Error", JOptionPane.ERROR_MESSAGE);
                 return; // Exit the method if parsing fails
             }
 
@@ -231,7 +232,8 @@ public class AddItemDialog extends JDialog {
                 item = new Item(name, description, client, status, imagePath, amount);
                 setVisible(false);
             } else {
-                JOptionPane.showMessageDialog(AddItemDialog.this, "Please fill all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(AddItemDialog.this,
+                        "Please fill all fields.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }

@@ -214,7 +214,8 @@ public class EditItemDialog extends JDialog {
             try {
                 amount = Integer.parseInt(amountField.getText().trim());
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(EditItemDialog.this, "Amount must be a valid integer.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(EditItemDialog.this,
+                        "Amount must be a valid integer.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
@@ -227,10 +228,10 @@ public class EditItemDialog extends JDialog {
                 item.setAmount(amount);
                 setVisible(false);
             } else {
-                JOptionPane.showMessageDialog(EditItemDialog.this, "Please fill necessary fields.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(EditItemDialog.this,
+                        "Please fill necessary fields.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
-
-
 }
+

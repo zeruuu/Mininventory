@@ -44,18 +44,20 @@ public class DeleteItemDialog extends JDialog {
                         if (option == JOptionPane.YES_OPTION) {
                             inventory.remove(selectedIndex);
                             listModel.remove(selectedIndex);
-                            JOptionPane.showMessageDialog(DeleteItemDialog.this, "Item deleted successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(DeleteItemDialog.this,
+                                    "Item deleted successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
                             setVisible(false);
                         }
                     } else {
-                        JOptionPane.showMessageDialog(DeleteItemDialog.this, "Select an item to delete.", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(DeleteItemDialog.this,
+                                "Select an item to delete.", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 } else if (inventory.isEmpty()){
-                    JOptionPane.showMessageDialog(DeleteItemDialog.this, "There is no item to delete.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(DeleteItemDialog.this,
+                            "There is no item to delete.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
-
 
         cancelButton.addActionListener(new ActionListener() {
             @Override
