@@ -11,7 +11,7 @@ public class EditItemDialog extends JDialog {
     private JTextArea descriptionArea;
     private JTextField clientField;
     private JTextField imagePathField;
-    private JTextField amountField;
+    private JTextField quantityField;
     private JButton browseButton;
     private JButton okButton;
     private JButton cancelButton;
@@ -23,7 +23,7 @@ public class EditItemDialog extends JDialog {
         this.item = selectedItem;
 
         setLayout(new BorderLayout());
-        setSize(420, 500);
+        setSize(420, 400);
         setResizable(false);
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -99,23 +99,23 @@ public class EditItemDialog extends JDialog {
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        inputPanel.add(new JLabel("Amount:"), gbc);
+        inputPanel.add(new JLabel("Quantity:"), gbc);
 
         gbc.gridx = 1;
         gbc.gridwidth = 2;
-        amountField = new JTextField(String.valueOf(selectedItem.getAmount()), 20);
-        inputPanel.add(amountField, gbc);
-        amountField.addFocusListener(new FocusListener() {
+        quantityField = new JTextField(String.valueOf(selectedItem.getQuantity()), 20);
+        inputPanel.add(quantityField, gbc);
+        quantityField.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
-                if (amountField.getText().equals("0")) {
-                    amountField.setText("");
+                if (quantityField.getText().equals("0")) {
+                    quantityField.setText("");
                 }
             }
             @Override
             public void focusLost(FocusEvent e) {
-                if (amountField.getText().equals("")) {
-                    amountField.setText("0");
+                if (quantityField.getText().equals("")) {
+                    quantityField.setText("0");
                 }
 
             }
@@ -210,12 +210,12 @@ public class EditItemDialog extends JDialog {
             String status = (String) statusField.getSelectedItem();
             String client = clientField.getText().trim();
 
-            int amount = 0;
+            int quantity = 0;
             try {
-                amount = Integer.parseInt(amountField.getText().trim());
+                quantity = Integer.parseInt(quantityField.getText().trim());
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(EditItemDialog.this,
-                        "Amount must be a valid integer.", "Error", JOptionPane.ERROR_MESSAGE);
+                        "Quantity must be a valid integer.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
@@ -225,7 +225,7 @@ public class EditItemDialog extends JDialog {
                 item.setImagePath(imagePath);
                 item.setStatus(status);
                 item.setClient(client);
-                item.setAmount(amount);
+                item.setQuantity(quantity);
                 setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(EditItemDialog.this,

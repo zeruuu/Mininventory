@@ -4,19 +4,19 @@ public class Item implements Serializable {
     private String name;
     private String description;
     private String imagePath;
-    private int amount;
+    private int quantity;
     private String status;
     private String client;
 
     // Constructor
     public Item(String name, String description, String client, String status,
-                String imagePath, int amount) {
+                String imagePath, int quantity) {
         this.name = name;
         this.description = description;
         this.client = client;
         this.status = status;
         this.imagePath = imagePath;
-        this.amount = amount;
+        this.quantity = quantity;
     }
 
     // Getters
@@ -29,8 +29,8 @@ public class Item implements Serializable {
     public String getImagePath() {
         return imagePath;
     }
-    public int getAmount() {
-        return amount;
+    public int getQuantity() {
+        return quantity;
     }
     public String getStatus() { return status; }
     public String getClient() { return client; }
@@ -45,8 +45,8 @@ public class Item implements Serializable {
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setQuantity(int amount) {
+        this.quantity = quantity;
     }
     public void setStatus(String status) {
         this.status = status;

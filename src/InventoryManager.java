@@ -8,7 +8,7 @@ import java.util.Comparator;
 
 // Eugene Andreu J. Cuello && Maria Criselli Sophia G. Almosara
 // BSCS - A123
-// Mininventory: A minimal and efficient inventory management system
+// Mininventory: A minimal and efficient inventory recording system
 public class InventoryManager extends JFrame {
     private ArrayList<Item> inventory; // Stores the list of 'Item' objects
     private DefaultListModel<String> listModel; // Manages the data for the 'JList'
@@ -18,7 +18,7 @@ public class InventoryManager extends JFrame {
 
     // Labels for displaySubPanel
     private JLabel nameLabel;
-    private JLabel amountLabel;
+    private JLabel quantityLabel;
     private JLabel statusLabel;
     private JLabel clientLabel;
 
@@ -110,10 +110,10 @@ public class InventoryManager extends JFrame {
             sortByNameButton.addActionListener(new SortNameListener());
 
             // Sort by Amount Button
-            JButton sortByAmountButton = new JButton("Amount");
+            JButton sortByQuantityButton = new JButton("Quantity");
             btngbc.gridx = 2;
-            buttonsPanel.add(sortByAmountButton, btngbc);
-            sortByAmountButton.addActionListener(new SortAmountListener());
+            buttonsPanel.add(sortByQuantityButton, btngbc);
+            sortByQuantityButton.addActionListener(new SortAmountListener());
 
             // Sort by Status Button
             JButton sortByStatusButton = new JButton("Status");
@@ -125,11 +125,11 @@ public class InventoryManager extends JFrame {
         JPanel displaySubPanel = new JPanel();
         displaySubPanel.setLayout(new GridLayout(0, 4));
         nameLabel = new JLabel("Name: ");
-        amountLabel = new JLabel("Amount: ");
+        quantityLabel = new JLabel("Quantity: ");
         statusLabel = new JLabel("Status: ");
         clientLabel = new JLabel("Client: ");
         displaySubPanel.add(nameLabel);
-        displaySubPanel.add(amountLabel);
+        displaySubPanel.add(quantityLabel);
         displaySubPanel.add(statusLabel);
         displaySubPanel.add(clientLabel);
 
@@ -290,7 +290,7 @@ public class InventoryManager extends JFrame {
     // Listener for Sorting by Amount
     private class SortAmountListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            inventory.sort(Comparator.comparing(Item::getAmount));
+            inventory.sort(Comparator.comparing(Item::getQuantity));
             updateItemList();
         }
     }
@@ -319,7 +319,7 @@ public class InventoryManager extends JFrame {
 
             // Update the labels in displaySubPanel
             nameLabel.setText("Name: " + item.getName());
-            amountLabel.setText("Amount: " + item.getAmount());
+            quantityLabel.setText("Quantity: " + item.getQuantity());
             statusLabel.setText("Status: " + item.getStatus());
             clientLabel.setText("Client: " + item.getClient());
         } else {
@@ -328,7 +328,7 @@ public class InventoryManager extends JFrame {
 
             // Clear the labels in displaySubPanel
             nameLabel.setText("Name: ");
-            amountLabel.setText("Amount: ");
+            quantityLabel.setText("Quantity: ");
             statusLabel.setText("Status: ");
             clientLabel.setText("Client: ");
         }
